@@ -12,37 +12,17 @@ import { useRouter } from "expo-router";
 import SignupController from "../components/signupcontroller";
 import { is } from "date-fns/locale";
 import { set } from "date-fns";
+import LandingPage from "../components/landing_page";
 
 export default function AppIndex() {
   const router = useRouter();
 
-  const [isSignedIn, setIsSignedIn] = useState(false);
+  const [isSignedIn, setIsSignedIn] = useState(true);
 
   return (
     <View style={styles.container}>
       {isSignedIn ? (
-        <View style={styles.container}>
-          <Pressable
-            onPress={() => {
-              setIsSignedIn(false);
-            }}
-          >
-            <Text>Sign out</Text>
-          </Pressable>
-          <Text>
-            Open up App.tsx to start working on your app. Hello there!{" "}
-            {sampleList[0]}, Sample Object: {sampleObject.name}, Age:{" "}
-            {sampleObject.age}
-          </Text>
-          <Button
-            button_text="routing sample"
-            button_color="red"
-            url="/routingSample"
-          />
-          <Button button_text="go to tabs" url="/(tabs)" />
-          <Counter />
-          <StatusBar style="auto" />
-        </View>
+        <LandingPage setIsSignedIn={setIsSignedIn} />
       ) : (
         <SignupController setIsSignedIn={setIsSignedIn} />
       )}
