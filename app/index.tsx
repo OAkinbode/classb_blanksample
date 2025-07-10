@@ -13,6 +13,7 @@ import SignupController from "../components/signupcontroller";
 import { is } from "date-fns/locale";
 import { set } from "date-fns";
 import LandingPage from "../components/landing_page";
+import UserManagement from "../components/usermanagement";
 
 export default function AppIndex() {
   const router = useRouter();
@@ -22,7 +23,8 @@ export default function AppIndex() {
   return (
     <View style={styles.container}>
       {isSignedIn ? (
-        <LandingPage setIsSignedIn={setIsSignedIn} />
+        // <LandingPage setIsSignedIn={setIsSignedIn} />
+        <UserManagement />
       ) : (
         <SignupController setIsSignedIn={setIsSignedIn} />
       )}

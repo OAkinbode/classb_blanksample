@@ -16,7 +16,7 @@ export async function createUser(user: User) {
   return data;
 }
 
-export async function getUsers() {
+export async function getAllUsers() {
   const { data, error } = await supabase.from(Table_name).select();
 
   if (error) {
